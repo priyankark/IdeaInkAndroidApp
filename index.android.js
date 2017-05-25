@@ -12,6 +12,7 @@ import {
   View
 } from 'react-native';
 import App from './src/App';
+import TextEdit from './src/Components/TextEdit'
 
 export default class IdeaInk extends Component {
   render() {

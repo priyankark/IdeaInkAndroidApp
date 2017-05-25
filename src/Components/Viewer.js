@@ -1,5 +1,10 @@
 import React, {Component} from 'react';
-import {View, AsyncStorage} from 'react-native';
+import {View, AsyncStorage, ScrollView} from 'react-native';
+import ListItems from './listItems';
+import Spin from './Spin';
+import {Button, Caption} from '@shoutem/ui';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 
 export default class Viewer extends Component{
 
@@ -13,8 +18,8 @@ componentWillMount()
   AsyncStorage.getAllKeys((err, keys) => {
      AsyncStorage.multiGet(keys, (err, stores) => { stores.map((result, i, store) => {  // get at each store's key/value so you can work with it
 let key = store[i][0];
-let value = store[i][1];
-items.push({key:value});
+let value =JSON.parse(store[i][1]);
+items.push(value);
  }); }); });
 
 this.setState({items:items});
@@ -26,21 +31,48 @@ refresh()
   AsyncStorage.getAllKeys((err, keys) => {
      AsyncStorage.multiGet(keys, (err, stores) => { stores.map((result, i, store) => {  // get at each store's key/value so you can work with it
 let key = store[i][0];
-let value = store[i][1];
-items.push({key:value});
+let value =JSON.parse(store[i][1]);
+items.push(value);
  }); }); });
 
 this.setState({items:items});
 
 }
 
+renderItems()
+{
+  /* <ListItems key={item.title} title={item.title}/> */
+
+       return this.state.items.map((item)=>{
+
+          return(
+
+              <ListItems key={item.title} title={item.title}/>
+
+            );
+        }
+     );
+}
+
 
 render()
 {
-  alert(this.state.items);
+
   return(
-    <View/>
-  )
+    <View style={{flex:1, flexDirection:'column'}}>
+
+      <Button onPress={this.refresh.bind(this)}>
+          <Icon name="refresh" size={25} />
+          <Caption> Refresh </Caption>
+      </Button>
+
+      <ScrollView>
+        {this.renderItems()}
+      </ScrollView>
+
+    </View>
+
+  );
 }
 
 

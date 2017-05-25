@@ -59,6 +59,8 @@
 		EC63460CD3F1459E8730C859 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 048FC6F340A1416B8FD3C31C /* Rubik-Medium.ttf */; };
 		2BF0A38ADB814EED8ED7D4A0 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E68A8CEC995246EEA1849F24 /* Rubik-MediumItalic.ttf */; };
 		8ED3D12C5901454C8A79BDDD /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E2CFE8FC0604218BC2C1C86 /* Rubik-Regular.ttf */; };
+		ABF0384D22B64FE29AD83522 /* libReact-Native-Webview-Bridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDAE05B796E947239C4675BE /* libReact-Native-Webview-Bridge.a */; };
+		F530242720E4461080EDF315 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5B3BA7C2A45545E584387639 /* OFL.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -305,6 +307,9 @@
 		048FC6F340A1416B8FD3C31C /* Rubik-Medium.ttf */ = {isa = PBXFileReference; name = "Rubik-Medium.ttf"; path = "../node_modules/@shoutem/ui/fonts/Rubik-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		E68A8CEC995246EEA1849F24 /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; name = "Rubik-MediumItalic.ttf"; path = "../node_modules/@shoutem/ui/fonts/Rubik-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		0E2CFE8FC0604218BC2C1C86 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; name = "Rubik-Regular.ttf"; path = "../node_modules/@shoutem/ui/fonts/Rubik-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4DB49B50439E483E8BC1EDC6 /* React-Native-Webview-Bridge.xcodeproj */ = {isa = PBXFileReference; name = "React-Native-Webview-Bridge.xcodeproj"; path = "../node_modules/react-native-webview-bridge/ios/React-Native-Webview-Bridge.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		CDAE05B796E947239C4675BE /* libReact-Native-Webview-Bridge.a */ = {isa = PBXFileReference; name = "libReact-Native-Webview-Bridge.a"; path = "libReact-Native-Webview-Bridge.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		5B3BA7C2A45545E584387639 /* OFL.txt */ = {isa = PBXFileReference; name = "OFL.txt"; path = "../node_modules/@shoutem/ui/fonts/OFL.txt"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +339,7 @@
 				D57743C2A5C4468F81BC6A64 /* libRNVectorIcons.a in Frameworks */,
 				BA7282201A0042A0963488A9 /* libBVLinearGradient.a in Frameworks */,
 				38908BA7DDD14C4B87D022D8 /* libRNShare.a in Frameworks */,
+				ABF0384D22B64FE29AD83522 /* libReact-Native-Webview-Bridge.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +509,7 @@
 				354A18DBD6E1401194A89A05 /* RNVectorIcons.xcodeproj */,
 				06F52002C09945CAA863CDEB /* BVLinearGradient.xcodeproj */,
 				B9A31C20028341F48B2E6722 /* RNShare.xcodeproj */,
+				4DB49B50439E483E8BC1EDC6 /* React-Native-Webview-Bridge.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -564,6 +571,7 @@
 				048FC6F340A1416B8FD3C31C /* Rubik-Medium.ttf */,
 				E68A8CEC995246EEA1849F24 /* Rubik-MediumItalic.ttf */,
 				0E2CFE8FC0604218BC2C1C86 /* Rubik-Regular.ttf */,
+				5B3BA7C2A45545E584387639 /* OFL.txt */,
 			);
 			name = Resources;
 			path = "";
@@ -948,6 +956,7 @@
 				EC63460CD3F1459E8730C859 /* Rubik-Medium.ttf in Resources */,
 				2BF0A38ADB814EED8ED7D4A0 /* Rubik-MediumItalic.ttf in Resources */,
 				8ED3D12C5901454C8A79BDDD /* Rubik-Regular.ttf in Resources */,
+				F530242720E4461080EDF315 /* OFL.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1084,12 +1093,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
+					"$(SRCROOT)/../node_modules/react-native-webview-bridge/ios",
 				);
 			};
 			name = Debug;
@@ -1113,12 +1124,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
+					"$(SRCROOT)/../node_modules/react-native-webview-bridge/ios",
 				);
 			};
 			name = Release;
@@ -1143,6 +1156,7 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
+					"$(SRCROOT)/../node_modules/react-native-webview-bridge/ios",
 				);
 			};
 			name = Debug;
@@ -1166,6 +1180,7 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
+					"$(SRCROOT)/../node_modules/react-native-webview-bridge/ios",
 				);
 			};
 			name = Release;
@@ -1198,12 +1213,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
+					"$(SRCROOT)/../node_modules/react-native-webview-bridge/ios",
 				);
 			};
 			name = Debug;
@@ -1236,12 +1253,14 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
+					"$(SRCROOT)/../node_modules/react-native-webview-bridge/ios",
 				);
 			};
 			name = Release;
@@ -1269,6 +1288,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -1293,6 +1313,7 @@
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
