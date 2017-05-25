@@ -68,9 +68,9 @@ render()
   return(
 
     <View style={{flex:1, flexDirection:'column'}}>
-    <Button onPress={this.refresh.bind(this)}>
+    <Button onPress={this.refresh.bind(this)} styleName="dark">
         <Icon name="history" size={25} />
-        <Caption> View And Edit Ideas </Caption>
+        <Caption> View And Edit Ideas/Refresh </Caption>
     </Button>
     {this.showOrNot()}
     </View>

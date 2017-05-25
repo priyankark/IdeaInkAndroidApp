@@ -77,7 +77,6 @@ returnAnimatableView()
         <Button onPress={this.storeData} style={{height:25}}  >
           <Icon name={this.state.iconName} size={25} />
         </Button>
-        <Spin size={'small'} spin={this.state.spin} />
       </Row>
     </Animatable.View>
   );
