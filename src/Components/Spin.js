@@ -16,7 +16,7 @@ render()
 
   };
 return (<View style={styles.spinnerStyle}>
-     <ActivityIndicator size={this.props.size} animating={this.props.spin} />
+     <ActivityIndicator size={this.props.size} />
       </View>);
 }
 

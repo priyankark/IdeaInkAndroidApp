@@ -22,14 +22,14 @@ toggler()
 
   let {toggleButtonIcon,buttonIconName} =this.state;
   if(toggleButtonIcon===false)
-  {toggleIcon=true;
+  {toggleButtonIcon=true;
     buttonIconName='minus'
   }
   else {
     toggleButtonIcon=false;
     buttonIconName='plus';
   }
-  this.setState({toggleButtonIcon,iconName});
+  this.setState({toggleButtonIcon,buttonIconName});
 
 }
 
@@ -91,14 +91,17 @@ returnAnimatableView()
 render()
 {
 
+
+return(
   <View style={{marginTop:50, flexDirection:"row"}}>
       <Button onPress={this.toggler.bind(this)} style={{height:25}}  >
         <Icon name={this.state.buttonIconName} size={25} />
       </Button>
-      {this.returnAnimatableView().bind(this)}
+      {this.returnAnimatableView()}
   </View>
-
-
+);
+}
+}
 
 /*if(this.props.icon==="minus")
 return(
@@ -110,4 +113,3 @@ else {
 }
 
 } */
-}

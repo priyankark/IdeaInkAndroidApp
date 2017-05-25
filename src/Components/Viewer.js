@@ -8,34 +8,25 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class Viewer extends Component{
 
-state={
-  items:[]
-};
+  state={
+    items:[],
+    loading:false
 
-componentWillMount()
-{
-  let items=[];
-  AsyncStorage.getAllKeys((err, keys) => {
-     AsyncStorage.multiGet(keys, (err, stores) => { stores.map((result, i, store) => {  // get at each store's key/value so you can work with it
-let key = store[i][0];
-let value =JSON.parse(store[i][1]);
-items.push(value);
- }); }); });
+  };
 
-this.setState({items:items});
-}
 
-refresh()
-{
-  let items=[];
-  AsyncStorage.getAllKeys((err, keys) => {
-     AsyncStorage.multiGet(keys, (err, stores) => { stores.map((result, i, store) => {  // get at each store's key/value so you can work with it
-let key = store[i][0];
-let value =JSON.parse(store[i][1]);
-items.push(value);
- }); }); });
 
-this.setState({items:items});
+  refresh()
+  {
+    let items=[];
+    this.setState({loading:true});
+    AsyncStorage.getAllKeys((err, keys) => {
+       AsyncStorage.multiGet(keys, (err, stores) => { stores.map((result, i, store) => {  // get at each store's key/value so you can work with it
+  let key = store[i][0];
+  let value =JSON.parse(store[i][1]);
+  items.push(value);
+  this.setState({items:items,loading:false});
+   }); }); });
 
 }
 
@@ -54,22 +45,34 @@ renderItems()
      );
 }
 
+showOrNot()
+{
+  if(this.state.loading===true)
+  return(<Spin/>);
+  else {
+    return(
+      <View style={{flex:1}}>
+      <ScrollView>
+          {this.renderItems()}
+      </ScrollView>
+      </View>
+    );
+  }
+}
+
 
 render()
 {
 
+
   return(
+
     <View style={{flex:1, flexDirection:'column'}}>
-
-      <Button onPress={this.refresh.bind(this)}>
-          <Icon name="refresh" size={25} />
-          <Caption> Refresh </Caption>
-      </Button>
-
-      <ScrollView>
-        {this.renderItems()}
-      </ScrollView>
-
+    <Button onPress={this.refresh.bind(this)}>
+        <Icon name="history" size={25} />
+        <Caption> View And Edit Ideas </Caption>
+    </Button>
+    {this.showOrNot()}
     </View>
 
   );
