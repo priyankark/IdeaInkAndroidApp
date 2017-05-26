@@ -3,8 +3,9 @@ import {View, Text, AsyncStorage} from 'react-native';
 import {Row, Caption, Button, RichMedia, Title, NavigationBar, Divider} from '@shoutem/ui';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Modal from 'react-native-modal';
-import {RichTextEditor,RichTextToolbar} from 'react-native-zss-rich-text-editor';
+import {RichTextEditor,RichTextToolbar,actions} from 'react-native-zss-rich-text-editor';
 import WebViewBridge from 'react-native-webview-bridge';
+
 
 export default class ListItems extends Component{
 
@@ -21,8 +22,8 @@ modalEdit()
   <View style={{flex:1}}>
   <RichTextEditor
   ref={(r) => this.richtext = r}
-  initialTitleHTML={'Title!!'}
-  initialContentHTML={'Hello <b>World</b> <p>this is a new paragraph</p> <p>this is another new paragraph</p>'}
+  initialTitleHTML={'Enter Title.'}
+  initialContentHTML={'Enter Content. Start storing your ideas away.'}
   editorInitializedCallback={() => this.onEditorInitialized() }
   style={{height:900,marginTop:20}}
 />
@@ -47,9 +48,8 @@ storeData= async ()=>
   AsyncStorage.removeItem('@IdeaInk:'+this.props.title);
   let obj={"title":'',"content":''};
   obj.title=await this.richtext.getTitleText();
-  alert(obj.title);
   obj.content=await this.richtext.getContentHtml();
-  alert(obj.title + ' ' + obj.content)
+
 
   try {
     const value = await AsyncStorage.getItem('@IdeaInk:'+obj.title);
@@ -62,8 +62,8 @@ storeData= async ()=>
 
 
         let stringObj=JSON.stringify(obj);
-        alert(stringObj);
       await AsyncStorage.setItem('@IdeaInk:'+obj.title, stringObj);
+      alert("Saved!");
     } catch (error) {
       // Error saving data
       alert(error);
@@ -108,18 +108,20 @@ return(
   </Row>
 
 
-  <Modal isVisible={this.state.visibleModal === 1}>
+  <Modal isVisible={this.state.visibleModal === 1} >
     <View style={{flex:1}}>
     <View style={{flexDirection:'row'}}>
-    <Button onPress={this.storeData} style={{flex:0.4}} styleName="dark">
-    <Text>
-      Save
-    </Text>
+    <NavigationBar
+  centerComponent={<Caption>Edit and refresh!</Caption>}
+  rightComponent={(
+    <Button onPress={this.storeData}>
+      <Icon name="save" size={20} />
     </Button>
-    <Caption>
-      Refresh on exit!
-    </Caption>
+  )}
+/>
+
     </View>
+    <Divider/>
     <RichTextEditor
     ref={(r) => this.richtext = r}
     initialTitleHTML={this.props.title}
@@ -129,6 +131,17 @@ return(
   />
   <RichTextToolbar
   getEditor={() => this.richtext}
+  actions={
+    [
+      actions.setBold,
+      actions.setItalic,
+      actions.insertBulletsList,
+      actions.insertOrderedList,
+      actions.insertLink
+
+
+    ]
+  }
   />
   </View>
   </Modal>
