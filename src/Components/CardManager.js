@@ -52,6 +52,7 @@ storeData= async ()=>
       await AsyncStorage.setItem('@IdeaInk:'+this.state.title, stringObj);
       this.setState({spin:false});
       this.setState({iconName:'check'});
+      this.forceUpdate();
     } catch (error) {
       // Error saving data
       alert(error);

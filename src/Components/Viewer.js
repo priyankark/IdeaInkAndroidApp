@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, AsyncStorage, ScrollView} from 'react-native';
+import {View, AsyncStorage, ScrollView, FlatList} from 'react-native';
 import ListItems from './listItems';
 import Spin from './Spin';
 import {Button, Caption} from '@shoutem/ui';
@@ -13,6 +13,7 @@ export default class Viewer extends Component{
     loading:false
 
   };
+
 
 
 
@@ -40,7 +41,7 @@ renderItems()
 
           return(
 
-              <ListItems key={item.title} title={item.title}/>
+              <ListItems key={item.title} title={item.title} content={item.content}/>
 
             );
         }
@@ -55,7 +56,7 @@ showOrNot()
     return(
       <View style={{flex:1}}>
       <ScrollView>
-          {this.renderItems()}
+        {this.renderItems()}
       </ScrollView>
       </View>
     );

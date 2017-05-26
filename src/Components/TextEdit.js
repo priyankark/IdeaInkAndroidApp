@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
 import {RichTextEditor,RichTextToolbar} from 'react-native-zss-rich-text-editor';
 import WebViewBridge from 'react-native-webview-bridge';
+import {Button} from '@shoutem/ui';
 
 export default class TextEdit extends Component{
 
@@ -14,8 +15,13 @@ richtext="";
 
 render()
 {
+  
   return(
     <View style={{flex:1}}>
+    <Button onPress={()=>alert(JSON.stringify(this.richtext.getTitleText()))} >
+    <Text> Press
+    </Text>
+    </Button>
     <RichTextEditor
     ref={(r) => this.richtext = r}
     initialTitleHTML={'Title!!'}

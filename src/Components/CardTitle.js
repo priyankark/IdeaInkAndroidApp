@@ -17,7 +17,7 @@ state={
 storeData= async ()=>
 {
   this.setState({spin:true});
-  let obj={"title":'',"content":''};
+  let obj={"title":'',"content":'Enter Content Here!'};
 
   try {
     const value = await AsyncStorage.getItem('@IdeaInk:'+this.state.title);
