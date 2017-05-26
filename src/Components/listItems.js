@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {View, Text, AsyncStorage} from 'react-native';
-import {Row, Caption, Button} from '@shoutem/ui';
+import {Row, Caption, Button, RichMedia, Title, NavigationBar, Divider} from '@shoutem/ui';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Modal from 'react-native-modal';
 import {RichTextEditor,RichTextToolbar} from 'react-native-zss-rich-text-editor';
@@ -77,6 +77,12 @@ storeData= async ()=>
 
 }
 
+removeIt()
+{
+  AsyncStorage.removeItem('@IdeaInk:'+this.props.title);
+  alert('Item removed! Please refresh.');
+}
+
 
 
 
@@ -96,7 +102,7 @@ return(
     <Button onPress={()=>this.setState({visibleModal:2})}>
      <Icon name="eye" size={15} />
     </Button>
-    <Button onPress={()=>this.setState({visibleModal:3})}>
+    <Button onPress={this.removeIt.bind(this)} >
      <Icon name="trash" size={15} />
     </Button>
   </Row>
@@ -104,11 +110,16 @@ return(
 
   <Modal isVisible={this.state.visibleModal === 1}>
     <View style={{flex:1}}>
-    <Button onPress={this.storeData}>
+    <View style={{flexDirection:'row'}}>
+    <Button onPress={this.storeData} style={{flex:0.4}} styleName="dark">
     <Text>
       Save
     </Text>
     </Button>
+    <Caption>
+      Refresh on exit!
+    </Caption>
+    </View>
     <RichTextEditor
     ref={(r) => this.richtext = r}
     initialTitleHTML={this.props.title}
@@ -122,17 +133,16 @@ return(
   </View>
   </Modal>
 
+  <Modal isVisible={this.state.visibleModal === 2}>
+    <View style={{flex:1}}>
+      <NavigationBar centerComponent={<Caption>{this.props.title}</Caption>} />
+      <Divider />
+      <Divider />
+      <RichMedia body={this.props.content} container={{marginTop:33,marginLeft:5}}/>
+    </View>
+  </Modal>
 
-
-
-
-  </View>
-
-
-
-
-
-
+</View>
 );
 }
 }
