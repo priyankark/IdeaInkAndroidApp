@@ -26,7 +26,9 @@ export default class Viewer extends Component{
   let value =JSON.parse(store[i][1]);
   items.push(value);
   this.setState({items:items,loading:false});
-   }); }); });
+  }); });
+  });
+
 
 }
 
